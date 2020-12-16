@@ -102,7 +102,7 @@ def index(request):
 
 
 def score(request):
-    message = ['success', '来查看总榜了呢']
+    message = ['success', '查看总榜']
     return render(request, 'table.html',
                   {'message': message, 'Year': Year, 'month': month, 'day': day, 'Hour': Hour, 'Minute': Minute,
                    'Second': Second, 'backimg': 6, 'height': 150})
@@ -306,12 +306,12 @@ def admin(request):
             round_index=round_index,
             result=flag_score * enc
         ).save()
-        message = ['success', '修改成功了呢']
+        message = ['success', '修改成功']
     status_ = Status.objects.all()
     return render(request, 'admin.html', {'status': status_, 'message': message, 'backimg': 6, 'height': 100})
 
 
 @login_required
 def admin_table(request):
-    message = ['success', '来查看总榜了呢']
+    message = ['success', '查看总榜']
     return render(request, 'admin_table.html', {'message': message, 'backimg': 6, 'height': 150})

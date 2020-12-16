@@ -29,7 +29,7 @@ def write_data(path, data=''):
 def get_docker_sh(num):
     out_port = str(8800 + num)
     ssh_port = str(2200 + num)
-    team_name = 'team' + str(num).zfill(2)
+    team_name = 'AWD-team' + str(num).zfill(2)
     data = read_data(team_name + '/docker.sh')
     data = data.replace("{out_port}", out_port).replace("{ssh_port}", ssh_port).replace("{team_name}",
                                                                                                 team_name)
@@ -68,7 +68,7 @@ def generate_key():
 
 
 def update_run_sh(num, password):
-    team_name = 'team' + str(num).zfill(2)
+    team_name = 'AWD-team' + str(num).zfill(2)
     data = read_data(team_name + '/run.sh')
     data = data.replace("moxiaoxi666", password)
     write_data(team_name + '/run.sh', data)
@@ -158,7 +158,7 @@ def main():
     secret_key = generate_key()
     check_port = get_check_port(dir)
     for i in range(1, team_number + 1):
-        team_name = 'team' + str(i).zfill(2)
+        team_name = 'AWD-team' + str(i).zfill(2)
         print("[+] Copy DATA ! {}".format(team_name))
         copy_dir(dir + '/', team_name)
         print("[+] get_docker_sh ! {}".format(team_name))

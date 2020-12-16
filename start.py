@@ -14,7 +14,7 @@ def start_flag():
 def gen_host_lists():
     res = ''
     for i in range(teamno):
-        res += "team%d:172.17.0.%d\n" % (i + 1, i + 2)
+        res += "AWD-team%d:172.17.0.%d\n" % (i + 1, i + 2)
     open('check_server/host.lists', 'w').write(res)
 
 
@@ -25,7 +25,7 @@ def start_check():
 
 
 def start_team(teamno):
-    team_dir = 'team' + str(teamno).zfill(2)
+    team_dir = 'AWD-team' + str(teamno).zfill(2)
     os.system('cd %s && sh docker.sh' % (team_dir))
     print('[*] start docker %s' % team_dir)
 
